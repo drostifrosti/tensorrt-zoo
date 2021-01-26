@@ -1,3 +1,3 @@
 [submodule "tiny-tensorrt"]
 	path = tiny-tensorrt
-	url = https://github.com/zerollzeng/tiny-tensorrt.git
+	url = https://github.com/drostifrosti/tiny-tensorrt.git
