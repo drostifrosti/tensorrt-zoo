@@ -8,7 +8,7 @@ file(GLOB openpose_source
      *.cu
      )
 cuda_add_executable(testopenpose ${openpose_source})
-target_compile_options(testopenpose PUBLIC -std=c++11 -Wall -Wfloat-conversion)
+target_compile_options(testopenpose PUBLIC -std=c++11 -Wall)
 target_link_libraries(testopenpose tinytrt)
 target_link_libraries(testopenpose nvinfer)
 target_link_libraries(testopenpose nvinfer_plugin)

@@ -7,7 +7,7 @@ file(GLOB yolov3_source
      *.cpp
      )
 add_executable(testyolov3 ${yolov3_source})
-target_compile_options(testyolov3 PUBLIC -std=c++11 -Wall -Wfloat-conversion)
+target_compile_options(testyolov3 PUBLIC -std=c++11 -Wall)
 target_link_libraries(testyolov3 tinytrt)
 target_link_libraries(testyolov3 nvinfer)
 target_link_libraries(testyolov3 nvinfer_plugin)
