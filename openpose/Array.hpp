@@ -2,6 +2,7 @@
 #define OPENPOSE_CORE_ARRAY_HPP
 
 #include <memory> // std::shared_ptr
+#include <string>
 #include <vector>
 
 #define UNUSED(unusedVariable) (void)(unusedVariable)
@@ -192,7 +193,27 @@ public:
      * @return A std::stringwith the size of each dimension. If no memory has been allocated, it will return an
      * empty string.
      */
-    std::string printSize() const;
+    std::string printSize() const
+    {
+        try
+        {
+            auto counter = 0u;
+            std::string sizeString = "[ ";
+            for (const auto& i : mSize)
+            {
+                sizeString += std::to_string(i);
+                if (++counter < mSize.size())
+                    sizeString += " x ";
+            }
+            sizeString += " ]";
+            return sizeString;
+        }
+        catch (const std::exception& e)
+        {
+            error(e.what(), __LINE__, __FUNCTION__, __FILE__);
+            return "";
+        }
+    }
 
     /**
      * Return the total number of dimensions, equivalent to getSize().size().
