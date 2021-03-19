@@ -93,13 +93,13 @@ namespace op
         int* xIntArray, int* yIntArray, T& dx, T& dy, const T xSource, const T ySource, const int widthSource,
         const int heightSource)
     {
-        xIntArray[1] = fastTruncateCuda(int(floor(xSource)), 0, widthSource - 1);
+        xIntArray[1] = fastTruncateCuda(int(floorf(xSource)), 0, widthSource - 1);
         xIntArray[0] = fastMaxCuda(0, xIntArray[1] - 1);
         xIntArray[2] = fastMinCuda(widthSource - 1, xIntArray[1] + 1);
         xIntArray[3] = fastMinCuda(widthSource - 1, xIntArray[2] + 1);
         dx = xSource - xIntArray[1];
 
-        yIntArray[1] = fastTruncateCuda(int(floor(ySource)), 0, heightSource - 1);
+        yIntArray[1] = fastTruncateCuda(int(floorf(ySource)), 0, heightSource - 1);
         yIntArray[0] = fastMaxCuda(0, yIntArray[1] - 1);
         yIntArray[2] = fastMinCuda(heightSource - 1, yIntArray[1] + 1);
         yIntArray[3] = fastMinCuda(heightSource - 1, yIntArray[2] + 1);
@@ -171,8 +171,8 @@ namespace op
         const int threadIdxX, const int threadIdxY)
     {
         // Now we only need dx and dy
-        const T dx = xSource - fastTruncateCuda(int(floor(xSource)), 0, widthSource - 1);
-        const T dy = ySource - fastTruncateCuda(int(floor(ySource)), 0, heightSource - 1);
+        const T dx = xSource - fastTruncateCuda(int(floorf(xSource)), 0, widthSource - 1);
+        const T dy = ySource - fastTruncateCuda(int(floorf(ySource)), 0, heightSource - 1);
 
         T temp[4];
         for (unsigned char i = 0; i < 4; i++)
