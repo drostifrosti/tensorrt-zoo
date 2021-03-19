@@ -15,8 +15,6 @@ if (NOT OpenCV_FOUND)
 endif (NOT OpenCV_FOUND)
 
 include_directories(tiny-tensorrt)
-link_directories(/usr/lib/x86_64-linux-gnu)
-link_directories(lib/)
 
 find_library(CUDART cudart HINTS /usr/local/cuda/targets/x86_64-linux/lib/)
 

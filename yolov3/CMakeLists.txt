@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
 project(testyolov3)
-# link_directories(/usr/lib/x86_64-linux-gnu)
 
 file(GLOB yolov3_source
      *.cpp
