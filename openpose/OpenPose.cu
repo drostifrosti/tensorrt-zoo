@@ -100,7 +100,8 @@ void OpenPose::DoInference(std::vector<float>& inputData, std::vector<float>& re
     Normalize<<<numBlocks, 512 , 0>>>((float*)mpInputGpu);
     mNet->Forward();
     std::vector<float> net_output;
-    net_output.resize(78*60*80); 
+    net_output.resize(78*58*120); 
+    //net_output.resize(78*60*80); 
     mNet->CopyFromDeviceToHost(net_output,1);
     memcpy((void*)mpHeatMapCpu,(void*)(net_output.data()),mHeatMapSize);
 
